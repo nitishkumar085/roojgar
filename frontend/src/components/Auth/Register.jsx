@@ -21,8 +21,9 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      console.log(email,name,phone,role,password)
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/register",
+        "http://127.0.0.1:8000/api/v1/user/register",
         { name, phone, email, role, password },
         {
           headers: {
@@ -31,6 +32,7 @@ const Register = () => {
           withCredentials: true,
         }
       );
+      console.log(data)
       toast.success(data.message);
       setName("");
       setEmail("");
@@ -39,7 +41,8 @@ const Register = () => {
       setRole("");
       setIsAuthorized(true);
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.log(error)
+      toast.error(error.response);
     }
   };
 
