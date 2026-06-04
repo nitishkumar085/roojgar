@@ -5,9 +5,9 @@ import cors from 'cors'
 import cookieParser from "cookie-parser"
 import fileUpload from "express-fileupload";
 import { v2 as cloudinary } from 'cloudinary';
-import userRouter from './routes/userRoutes.js'
-import jobRouter from './routes/jobRoutes.js'
-import applicationRouter from './routes/applicationRoutes.js'
+import userRouter from '../routes/userRoutes.js'
+import jobRouter from '../routes/jobRoutes.js'
+import applicationRouter from '../routes/applicationRoutes.js'
 dotenv.config();
 
 const app = express();
