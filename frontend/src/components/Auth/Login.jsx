@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/user/login",
+        "https://roojgar-jio4.vercel.app/api/v1/user/login",
         { email, password, role },
         {
           headers: {

@@ -23,7 +23,7 @@ const Register = () => {
     try {
       console.log(email,name,phone,role,password)
       const { data } = await axios.post(
-        "http://127.0.0.1:8000/api/v1/user/register",
+        "https://roojgar-jio4.vercel.app/api/v1/user/register",
         { name, phone, email, role, password },
         {
           headers: {
