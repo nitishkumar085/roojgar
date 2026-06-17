@@ -14,13 +14,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: ['https://roojgar.vercel.app',"http://localhost:5173"], // Allow only this domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],   // Allow only specific methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow only specific headers
-  credentials: true,
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-}));
+app.use(cors());
 
 
 const port = process.env.PORT  || 8080
