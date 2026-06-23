@@ -10,25 +10,33 @@ const Navbar = () => {
   const { isAuthorized, setIsAuthorized, user } = useContext(Context);
   const navigateTo = useNavigate();
 
-  const handleLogout = async () => {
+  const handleLogout = async (e) => {
     try {
-      const response = await axios.get(
+      if(e.target.innerText ==="login")
+        {
+          navigateTo("/login")
+        } 
+        else{
+           const response = await axios.get(
         "https://roojgar-jio4.vercel.app/api/v1/user/logout",
         {
           withCredentials: true,
         }
       );
-      console.log|(response.data)
+      console.log(response.data)
       toast.success(response.data.message);
       setIsAuthorized(false);
       navigateTo("/login");
+        }
+
+     
     } catch (error) {
-      toast.error(error.response.data.message), setIsAuthorized(true);
+      toast.error(error.response?.data?.message), setIsAuthorized(true);
     }
   };
 
   return (
-    <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>
+    <nav className={isAuthorized ? "navbarShow": "navbarHide"}>
       <div className="container">
         <div className="logo">
           <img src="/JobZee-logos__white.png" alt="logo" />
@@ -68,6 +76,7 @@ const Navbar = () => {
             <></>
           )}
 
+      
           <button onClick={handleLogout}>LOGOUT</button>
         </ul>
         <div className="hamburger">
