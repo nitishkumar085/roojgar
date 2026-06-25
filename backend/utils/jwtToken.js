@@ -8,6 +8,7 @@ export const sendToken = (user, statusCode, res, message) => {
     secure: true,   // Set to true if using HTTPS (leave false for HTTP localhost)
   sameSite: "none", // Critical if frontend and backend are on different domains
     httpOnly: true, // Set httpOnly to true
+    path:"/"
   };
 
   res.status(statusCode).cookie("token", token, options).json({
