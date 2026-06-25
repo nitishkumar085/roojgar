@@ -43,7 +43,7 @@ export const login = catchAsyncErrors(async (req, res, next) => {
   sendToken(user, 201, res, "User Logged In!");
 });
 
-export const logout = catchAsyncErrors(async (req, res, next) => {
+export const logout = async (req, res, next) => {
 res.cookie("token", "", {
   expires: new Date(0),
   secure: true,
@@ -58,7 +58,7 @@ res.cookie("token", "", {
     success: true,
     message: "Logged Out Successfully.",
   });
-});
+}
 
 
 export const getUser = catchAsyncErrors((req, res, next) => {
