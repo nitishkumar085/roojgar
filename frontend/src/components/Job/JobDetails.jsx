@@ -12,7 +12,7 @@ const JobDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://roojgar-jio4.vercel.app/api/v1/job/${id}`, {
+      .get(`http://localhost:8000/api/v1/job/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

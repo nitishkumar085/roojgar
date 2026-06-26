@@ -35,7 +35,7 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "https://roojgar-jio4.vercel.app/api/v1/application/post",
+        "http://localhost:8000/api/v1/application/post",
         formData,
         {
           withCredentials: true,
