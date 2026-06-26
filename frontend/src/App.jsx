@@ -23,7 +23,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://roojgar-jio4.vercel.app/api/v1/user/getuser",
+          "http://localhost:8000/api/v1/user/getuser",
           {
             withCredentials: true,
           }

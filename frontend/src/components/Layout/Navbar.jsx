@@ -12,13 +12,9 @@ const Navbar = () => {
 
   const handleLogout = async (e) => {
     try {
-      if(e.target.innerText ==="login")
-        {
-          navigateTo("/login")
-        } 
-        else{
+     
            const response = await axios.get(
-        "https://roojgar-jio4.vercel.app/api/v1/user/logout",
+        "http://localhost:8000/api/v1/user/logout",
         {
           withCredentials: true,
         }
@@ -27,7 +23,7 @@ const Navbar = () => {
       toast.success(response.data.message);
       setIsAuthorized(false);
       navigateTo("/login");
-        }
+        
 
      
     } catch (error) {

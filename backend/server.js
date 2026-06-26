@@ -14,7 +14,10 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin:['http://localhost:5173'],
+  credentials:true
+}));
 
 
 const port = process.env.PORT  || 8080
@@ -52,22 +55,4 @@ app.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });
 
-// import mongoose from 'mongoose';
 
-// // Verify the MONGODB_URI environment variable
-// const mongoURI = process.env.MONGODB_URI;
-// if (!mongoURI) {
-//   console.error("MONGODB_URI environment variable is not set.");
-//   process.exit(1); // Exit the process if MONGODB_URI is not set
-// }
-
-// // Establish MongoDB connection
-// mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log('Connected to MongoDB');
-//     // Add your server listening code here
-//   })
-//   .catch(error => {
-//     console.error('Error connecting to MongoDB:', error);
-//     process.exit(1); // Exit the process if connection fails
-//   });
