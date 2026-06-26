@@ -23,7 +23,7 @@ const Register = () => {
     try {
       console.log(email,name,phone,role,password)
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/user/register",
+        "https://roojgarapi.onrender.com/api/v1/user/register",
         { name, phone, email, role, password },
         {
           headers: {
